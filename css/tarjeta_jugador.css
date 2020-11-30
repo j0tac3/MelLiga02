@@ -1,0 +1,61 @@
+.jugadores{
+    width: 70%;
+    margin: 0 auto;
+    max-width: 20em;
+}
+.jugador{
+    display: flex;
+    align-items: center;
+    box-shadow: 5px 5px 15px -5px black;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.jugador_imagen{
+    width: 5em;
+    height: 5em;
+}
+.jugador_info{
+    display: flex;
+    flex-direction: column;
+    height: 4em;
+    justify-content: space-around;
+}
+.info_personal{
+    background-color: #2E1C2B;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px -2px #395E65;
+}
+.info_nombre{
+    padding-left: 5px;
+}
+.info_edad{
+    background-color: #FF7D00;
+    border-left: solid 1px #fff;
+    padding: 1px 6px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.info-equipo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 10em;
+}
+.info_posicion{
+    background-color: red;
+    width: 7em;
+    border-radius: 6px;
+    color: #fff;
+    box-shadow: 0 0 5px black;
+}
+.info_numero{
+    padding: 1px 0.5em;
+    color: black;
+    background-color: #fff;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.jugador_escudo{
+    width: 2em;
+}
