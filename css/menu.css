@@ -1,0 +1,31 @@
+.menu-lateral{
+    position: absolute;
+    width: 0;
+    height: 80%;
+    color: #fff;
+    cursor: pointer;
+    z-index: 888;
+    left: 0;
+    transition: all 0.5s ease;
+}
+.icono-menu_lateral{
+    width: 2em;
+    position: absolute;
+    top: 30%;
+    left: 1em;
+}
+.menu-lateral_lista{
+    background-color: #395E65;
+    width: 50%;
+    height: 100%;
+    padding-top: 0.2em;
+    cursor: default;
+    z-index: 999;
+}
+.menu-lateral_visible{
+    width: 100%;
+}
+.menu-lateral_item{
+    margin-left: 1em;
+    margin-bottom: 0.2em;
+}

@@ -1,0 +1,19 @@
+.cabecera{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #395E65;
+    color: #fff;
+    width: 100%;
+    min-height: 10vh
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    background-color: #395E65;
+    width: 100%;
+    min-height: 10vh;
+}

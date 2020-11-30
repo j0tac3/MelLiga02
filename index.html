@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MelLiga</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/contenido.css">
+    <link rel="stylesheet" href="css/buscador.css">
+    <link rel="stylesheet" href="css/cabecera.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/tarjeta_jugador.css">
+</head>
+<body>
+        <header class="cabecera">
+            <img src="media/iconos/menu.svg" alt="" class="icono-menu_lateral" id="icono-menu_lateral">
+            <a href="index.html">
+                <h1 class="titulo" id="titulo">MelLiga</h1>
+            </a>
+        </header>
+        <section class="content">
+        <aside class="menu-lateral" id="menu-lateral">
+            <ul class="menu-lateral_lista" id="menu-lateral_lista">
+                <li class="menu-lateral_item">Equipos</li>
+                <li class="menu-lateral_item">Jugadores</li>
+                <li class="menu-lateral_item">Top Fichajes</li>
+                <li class="menu-lateral_item">Top 10</li>
+            </ul>
+        </aside>
+        <nav>
+            <ul class="lista_equipos" id="lista_equipos"></ul>
+        </nav>
+        <form action="" class="form-buscador">
+            <input type="text" placeholder="Equipo, Nombre, Posicion ..." class="buscador_jugadores">
+        </form>
+        </section>
+        <footer class="footer">
+            <span>&copyMelLiga v1.2a0</span>
+            <span>MelApis</span>
+        </footer>
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
