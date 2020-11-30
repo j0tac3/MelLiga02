@@ -59,7 +59,6 @@ const rellenarMenuEquipos = (equipos) => {
         fragment.appendChild(elemento);
     }
     listaEquipos.appendChild(fragment);
-    listaEquipos.classList.add('lista_equipos');
 }
 
 const cargarEquipos = async () => {
@@ -68,7 +67,49 @@ const cargarEquipos = async () => {
         equipos.push(new Equipo(equipo));
     });
     rellenarMenuEquipos(equipos);
+    listaEquipos.classList.add('lista_equipos');
     return `Todos los equipos han sido agregados.`;
 }
 
-cargarEquipos();
+/*******************Jugadores **************************/
+const getAllJugadores = async () => {
+    return new Promise((resolve, reject) => {
+        axios({
+            method : 'GET',
+            url : 'https://immense-mountain-28279.herokuapp.com/api/jugadores'
+        }).then(res => {
+            resolve(res.data);
+        }).catch(error => console.log(error));
+    })
+}
+
+const cargarJugadores = async () => {
+    jugadores = await getAllJugadores();
+    return 'Todos los jugadores han sido agregados.';
+}
+
+const cargarEquiposJugadores = async () => {
+    for (let equipo of equipos) {
+        rellenarEquipoJugadores(jugadores, equipo);
+    }
+}
+
+rellenarEquipoJugadores = (jugadores, equipo) => {
+    for (let jugador of jugadores) {
+        if (equipo.id === jugador.equipo_id){
+            equipo.jugadores.push(new Jugador(jugador));
+        }
+    }
+}
+
+const crearTarjetaJugador = () => {
+    let fragment = document.createDocumentFragment();
+    
+}
+
+const cargaInicial = async () => {
+    cargarEquipos().then(res=>console.log(res));
+    cargarJugadores().then(res => cargarEquiposJugadores())
+}
+
+cargaInicial();

@@ -31,8 +31,7 @@
     min-width: 10em;
 }
 .lista_equipos_oculta{
-    display: none;
-    transition: all 0.5s ease;
+    height: 0;
 }
 .lista_equipos{
     background-color: #fff;
@@ -43,12 +42,12 @@
     height: 5rem;
     overflow-y: hidden;
     white-space: nowrap;
+    visibility: visible;
+    opacity: 1;
+    transition: all 1s ease;
 }
 .lista_equipos::-webkit-scrollbar{
     display: none;
-}
-.lista_equipos:hover{
-    cursor: pointer;
 }
 .icono-menu-equipo{
     margin: 0 0.5rem;
