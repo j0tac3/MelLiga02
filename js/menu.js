@@ -12,4 +12,5 @@ const mostrarOcultarMenu = () => {
     }
 }
 
+menuLateral.addEventListener('click', mostrarOcultarMenu);
 iconoMenuLateral.addEventListener('click', mostrarOcultarMenu);
