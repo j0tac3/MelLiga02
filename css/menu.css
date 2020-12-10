@@ -12,6 +12,7 @@
 .menu-lateral_visible{
     left: 0;
     transition: all 1s ease-out;
+    position: fixed;
 }
 .icono-menu_lateral{
     width: 2em;
@@ -24,9 +25,9 @@
     transform: scale(1.2);
 }
 .menu-lateral_lista{
-    background-color: #fff;
+    background-color: #395e65;
     width: 50%;
-    color: black;
+    color: #ffff;
     height: 100%;
     padding-top: 0.2em;
     cursor: default;
@@ -34,9 +35,17 @@
     padding-top: 2em;
 }
 .menu-lateral_item{
+    display: flex;
+    align-items: center;
     padding-left: 1em;
     padding-bottom: 1em;
+    width: 100%;
     min-width: 10em;
+    font-size: 1.2rem;
+}
+.item-img{
+    width: 2.5rem;
+    padding-right: 0.5rem;
 }
 .lista_equipos_oculta{
     height: 0;

@@ -2,6 +2,7 @@
     width: 70%;
     margin: 0 auto;
     max-width: 20em;
+    padding-bottom: 0.5rem;
 }
 .jugador{
     display: flex;
@@ -9,6 +10,7 @@
     box-shadow: 5px 5px 15px -5px black;
     border-radius: 5px;
     background-color: #fff;
+    margin-bottom: 0.5rem;
 }
 .jugador_imagen{
     width: 5em;

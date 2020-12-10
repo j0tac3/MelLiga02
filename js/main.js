@@ -6,7 +6,7 @@ class Equipo{
         this.estadio = equipo.estadio;
         this.fundacion = equipo.fundacion;
         this.presidente = equipo.presidente;
-        this.jugadores = [];
+        this.jugadores = new Array();
     }
     agregarJugador(jugador){
         this.jugadores.push(jugador);
@@ -94,78 +94,89 @@ const cargarEquiposJugadores = async () => {
 }
 rellenarEquipoJugadores = (jugadores, equipo) => {
     for (let jugador of jugadores) {
-        if (equipo.id === jugador.equipo_id && jugador.seccion == 'Base'){
-            equipo.jugadores.push(new Jugador(jugador));
-        }
+        let jugadoresEquipo = jugadores.filter(jugador => jugador.equipo_id == equipo.id && jugador.seccion == 'Base');
+        equipo.jugadores = jugadoresEquipo;
+        //equipo.jugadores.push(new Jugador(jugador));
     }
 }
 const crearTarjetaJugador = () => {
     let fragment = document.createDocumentFragment();
 
 }
+const cargarTarjetasJugadores = (equipo) => {
+    let fragment = document.createDocumentFragment();
+    for (let jugador of equipo.jugadores) {
+        let imagenJugador = document.createElement('IMG');
+        imagenJugador.src = `media/jugadores_perfil/${jugador.apodo}.png`;
+        imagenJugador.alt = `${jugador.nombre}`;
+        let header = document.createElement('HEADER');
+        header.classList.add('jugador_imagen');
+        header.appendChild(imagenJugador);
+
+        let infoNombre = document.createElement('SPAN');
+        infoNombre.textContent = jugador.apodo;
+        infoNombre.classList.add('info_nombre');
+        let infoEdad = document.createElement('SPAN');
+        infoEdad.textContent = jugador.fecha_nacimiento;
+        infoEdad.classList.add('info_edad');
+        let infoPersonal = document.createElement('DIV');
+        infoPersonal.classList.add('info_personal');
+        infoPersonal.appendChild(infoNombre);
+        infoPersonal.appendChild(infoEdad);
+
+        let jugadorEscudo = document.createElement('IMG');
+        jugadorEscudo.src = `media/equipos/${equipo.escudo}`;
+        jugadorEscudo.alt = `${equipo.nombre}`;
+        jugadorEscudo.classList.add('jugador_escudo');
+        let infoNumero = document.createElement('SPAN');
+        infoNumero.textContent = jugador.numero;
+        infoNumero.classList.add('info_numero');
+        //infoNumero.classList.add('info_numero');
+        let posicion = document.createElement('SPAN');
+        posicion.textContent = jugador.posicion;
+        let infoPosicion = document.createElement('DIV');
+        infoPosicion.classList.add('info_posicion');
+        infoPosicion.appendChild(infoNumero);
+        infoPosicion.appendChild(posicion);
+        let infoEquipo = document.createElement('DIV');
+        infoEquipo.classList.add('info_equipo');
+        infoEquipo.appendChild(infoPosicion);
+        infoEquipo.appendChild(jugadorEscudo);
+
+        let jugadorInfo = document.createElement('DIV');
+        jugadorInfo.classList.add('jugador_info');
+        jugadorInfo.appendChild(infoPersonal);
+        jugadorInfo.appendChild(infoEquipo);
+
+        let jugadorCard = document.createElement('DIV');
+        jugadorCard.classList.add('jugador');
+        jugadorCard.appendChild(header);
+        jugadorCard.appendChild(jugadorInfo);
+        fragment.appendChild(jugadorCard);
+    }
+    equiposCard.appendChild(fragment);
+}
 const cargaInicial = async () => {
     cargarEquipos().then(res=>console.log(res));
     cargarJugadores().then(res => {
         cargarEquiposJugadores();
         if (window.location.pathname == '/index.html'){
-            cargarTarjetasJugadores();
+            cargarTarjetasJugadores(equipos[0]);
         }
     })
 }
-const cargarTarjetasJugadores = () => {
-    let fragment = document.createDocumentFragment();
-    for (let equipo of equipos){
-        for (let jugador of equipo.jugadores) {
-            let imagenJugador = document.createElement('IMG');
-            imagenJugador.src = `media/jugadores_perfil/${jugador.apodo}.png`;
-            imagenJugador.alt = `${jugador.nombre}`;
-            let header = document.createElement('HEADER');
-            header.classList.add('jugador_imagen');
-            header.appendChild(imagenJugador);
-
-            let infoNombre = document.createElement('SPAN');
-            infoNombre.textContent = jugador.apodo;
-            infoNombre.classList.add('info_nombre');
-            let infoEdad = document.createElement('SPAN');
-            infoEdad.textContent = jugador.fecha_nacimiento;
-            infoEdad.classList.add('info_edad');
-            let infoPersonal = document.createElement('DIV');
-            infoPersonal.classList.add('info_personal');
-            infoPersonal.appendChild(infoNombre);
-            infoPersonal.appendChild(infoEdad);
-
-            let jugadorEscudo = document.createElement('IMG');
-            jugadorEscudo.src = `media/equipos/${equipo.escudo}`;
-            jugadorEscudo.alt = `${equipo.nombre}`;
-            jugadorEscudo.classList.add('jugador_escudo');
-            let infoNumero = document.createElement('SPAN');
-            infoNumero.textContent = jugador.numero;
-            infoNumero.classList.add('info_numero');
-            //infoNumero.classList.add('info_numero');
-            let posicion = document.createElement('SPAN');
-            posicion.textContent = jugador.posicion;
-            let infoPosicion = document.createElement('DIV');
-            infoPosicion.classList.add('info_posicion');
-            infoPosicion.appendChild(infoNumero);
-            infoPosicion.appendChild(posicion);
-            let infoEquipo = document.createElement('DIV');
-            infoEquipo.classList.add('info_equipo');
-            infoEquipo.appendChild(infoPosicion);
-            infoEquipo.appendChild(jugadorEscudo);
-
-            let jugadorInfo = document.createElement('DIV');
-            jugadorInfo.classList.add('jugador_info');
-            jugadorInfo.appendChild(infoPersonal);
-            jugadorInfo.appendChild(infoEquipo);
-
-            let jugadorCard = document.createElement('DIV');
-            jugadorCard.classList.add('jugador');
-            jugadorCard.appendChild(header);
-            jugadorCard.appendChild(jugadorInfo);
-            fragment.appendChild(jugadorCard);
-        }
+const vaciarJugadores = () => {
+    let jugadoresCard = document.getElementById('jugadores-card');
+    let nJugadores = jugadoresCard.childElementCount;
+    for (let index = 0; index < nJugadores; index++){
+        jugadoresCard.removeChild(jugadoresCard.children[0]);
     }
-    equiposCard.appendChild(fragment);
+}
+const cambiarTarjetasJugadores = (e) => {
+    let equipo = equipos.filter(equipo => equipo.nombre == e.target.alt);
+    vaciarJugadores();
+    cargarTarjetasJugadores(equipo[0]);
 }
 
 cargaInicial();
+listaEquipos.addEventListener('click', cambiarTarjetasJugadores)
