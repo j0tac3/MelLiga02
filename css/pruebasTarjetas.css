@@ -27,3 +27,11 @@
 .prueba-escudo{
     width: 1rem;
 }
+.jugador-prueba-encontrado{
+    filter: grayscale(0);
+    transition: all 0.5s ease-out;
+}
+.jugador-prueba-no-encontrado{
+    filter: grayscale(1);
+    transition: all 0.5s ease-in;
+}
