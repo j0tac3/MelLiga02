@@ -1,0 +1,29 @@
+.prueba-jugador{
+    margin-bottom: 0.5rem;
+    min-width: 15rem;
+    display: flex;
+    font-family: arial;
+    border-radius: 10px;
+    box-shadow: 5px 4px 20px -5px #aaa;
+}
+.prueba-img{
+    width: 5rem;
+}
+.prueba-cuerpo{
+    width: 80%;
+    min-width: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.prueba-nombre{
+    font-size: 1.5rem;
+}
+.prueba-datos{
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-around;
+}
+.prueba-escudo{
+    width: 1rem;
+}
