@@ -25,7 +25,7 @@
     transform: scale(1.2);
 }
 .menu-lateral_lista{
-    background-color: #395e65;
+    background-color: #FC6269;
     width: 50%;
     color: #ffff;
     height: 100%;
@@ -69,7 +69,7 @@
 .icono-menu-equipo{
     margin: 0 0.5rem;
     width: 4em;
-        padding: 0.2rem;
+    padding: 0.2rem;
     filter: grayscale(1);
     transition: all 0.3s ease;
 }
